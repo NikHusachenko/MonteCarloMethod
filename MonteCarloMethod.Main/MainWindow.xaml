@@ -1,0 +1,47 @@
+﻿<Window x:Class="MonteCarloMethod.Main.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonteCarloMethod.Main"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1600" ResizeMode="NoResize">
+    <Grid>
+        <Grid x:Name="ImageContainer" Margin="0,10,0,0" HorizontalAlignment="Center" Width="1580" Height="663" VerticalAlignment="Top">
+            <InkCanvas
+                Name="DrawingInkCanvas"
+                Background="LightBlue" EditingMode="None" MouseLeftButtonDown="DrawingInkCanvas_MouseLeftButtonDown" Loaded="DrawingInkCanvas_Loaded"/>
+        </Grid>
+
+        <Grid x:Name="ControllContainer" Margin="10,678,10,10">
+            <Button 
+                Name="DrawButton"
+                Content="Start drawing" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom"
+                Margin="10,0,0,52" 
+                Width="200" Height="20" Click="DrawButton_Click"/>
+
+            <Slider 
+                Name="SelectAccuracy"
+                Margin="10,0,0,10" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom"
+                Width="200" Height="33"
+                Minimum="1" Maximum="100" Value="1"
+                TickFrequency="5" TickPlacement="BottomRight" Loaded="SelectAccuracy_Loaded"/>
+
+            <!-- Output here -->
+            <Label
+                Name="AccuracyValueOutputLabel"
+                Content="0" 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="215,0,0,18"
+                Height="25" Width="50"/>
+            <Label x:Name="AreaResultLabel" Content="Area = 0" HorizontalAlignment="Left" Margin="240,0,0,52" Width="223" Height="26" VerticalAlignment="Bottom"/>
+            <Label x:Name="RealAreaLabel" Content="Real area = 0" HorizontalAlignment="Left" Margin="240,0,0,13" Width="223" AutomationProperties.Name="RealAreaLabel" Height="26" VerticalAlignment="Bottom"/>
+
+        </Grid>
+    </Grid>
+</Window>
